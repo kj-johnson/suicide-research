@@ -1,11 +1,20 @@
 import json
 import requests
+import sys
+
+# retrieve command line arguments
+if len(sys.argv) != 2:
+  print ("Usage: python sentiment-analysis.py [filename]")
+  exit(1)
+
+filename = sys.argv[1]
+
 
 # configuration variables
-filename = "at-risk-data - Copy.json"
 minimum_confidence = 25.0 # from 0 to 100 - higher is more confident. Set to 0 to use all data.
 url = "http://sentiment.vivekn.com/api/batch/"
 verbose_mode = False  # shows the details of the confidence levels
+
 
 # open the file and read in the JSON
 try:
